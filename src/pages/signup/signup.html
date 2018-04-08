@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+
+    <ion-buttons start color="dark">
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Registrarse</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onSignup(f)">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Correo</ion-label>
+        <ion-input type="email" ngModel name="email" required placeholder="correo_123@gmail.com"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Contraseña</ion-label>
+        <ion-input type="password" ngModel name="password" required minlength="6" placeholder="* * * * * *"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button block type="submit" [disabled]="!f.valid">Registrarse</button>
+  </form>
+</ion-content>

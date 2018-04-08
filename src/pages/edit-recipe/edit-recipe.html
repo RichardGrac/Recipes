@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>{{ mode }} Receta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- With this, I'll made Angular use my own FormGroup -->
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Titulo</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Descripción</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Dificultad</ion-label>
+        <ion-select formControlName="difficulty" [selectOptions]="selectOptions">
+          <ion-option *ngFor="let option of dificultOptions" [value]="option">{{ option }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <button type="button" clear ion-button block (click)="onManageIngredients()">Administrar ingredientes</button>
+
+    <ion-list formArrayName="ingredients">
+
+      <ion-item-sliding *ngFor="let igControl of recipeForm.get('ingredients').controls; let i = index">
+
+        <ion-item>
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" [formControlName]="i"></ion-input>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="onDeleteItem(i)">
+            <ion-icon name="trash"></ion-icon>
+            Eliminar
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+    <button type="submit" ion-button block [disabled]="!recipeForm.valid">{{ mode }} receta</button>
+  </form>
+</ion-content>

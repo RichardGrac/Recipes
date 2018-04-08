@@ -1,0 +1,46 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-content, ion-label, ion-input, button, ion-select, ion-textarea, h2, p{
+  color: white;
+}
+
+.black-title{
+
+  // This will theme the title of an AllertController
+  h2{color: black;}
+
+  //button.alert-button.accept-button{
+  //  color: red;
+  //}
+  // Or Also:
+  //button.alert-button{
+  //  color: red;
+  //}
+}
+
+.white-title{
+  ion-grid{
+    border: 1px forestgreen solid;
+    border-radius: 10px;
+  }
+  h3{color:forestgreen;}
+}
+
+
+// Check this for theming into AllertControllers!
+//https://stackoverflow.com/questions/47174779/setting-default-style-of-ionic-alert-popup-elements
